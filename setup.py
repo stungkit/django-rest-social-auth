@@ -26,7 +26,7 @@ if sys.argv[-1] == 'publish':
     # https://packaging.python.org/guides/migrating-to-pypi-org/#uploading
     dists_to_upload = [
         # f'dist/rest_social_auth-{__version__}.tar.gz',
-        f'dist/rest_social_auth-{__version__}-py2.py3-none-any.whl',
+        f'dist/rest_social_auth-{__version__}-py3-none-any.whl',
     ]
     for dist in dists_to_upload:
         print(f'Uploading {dist}')
@@ -54,6 +54,7 @@ setup(
     platforms=('Any'),
     packages=['rest_social_auth'],
     install_requires=install_requires,
+    python_requires='>=3.10',
     keywords='django social auth rest login signin signup oauth'.split(),
     include_package_data=True,
     license='MIT license',
