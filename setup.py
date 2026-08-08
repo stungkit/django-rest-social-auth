@@ -22,15 +22,15 @@ if sys.argv[-1] == 'build':
 
 
 if sys.argv[-1] == 'publish':
-    # TODO: Need python 3.4.6+, 3.5.3+, Python 3.6+ here, add a check
     # https://packaging.python.org/guides/migrating-to-pypi-org/#uploading
     dists_to_upload = [
-        # f'dist/rest_social_auth-{__version__}.tar.gz',
+        f'dist/rest_social_auth-{__version__}.tar.gz',
         f'dist/rest_social_auth-{__version__}-py3-none-any.whl',
     ]
+    # upload in a single twine call, so credentials are asked for only once
     for dist in dists_to_upload:
         print(f'Uploading {dist}')
-        os.system(f'twine upload -r pypi {dist}')
+    os.system(f"twine upload -r pypi {' '.join(dists_to_upload)}")
     sys.exit()
 
 

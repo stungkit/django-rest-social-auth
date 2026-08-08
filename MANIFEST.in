@@ -1,3 +1,7 @@
 include README.md
 include RELEASE_NOTES.md
 include requirements.txt
+
+# setuptools pulls in test*.py by default, which ships an unrunnable fragment
+# of the suite: no base.py, and no example_project to provide the settings
+prune tests
